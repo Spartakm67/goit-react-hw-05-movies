@@ -1,6 +1,8 @@
 import { NavLink, Route, Routes } from "react-router-dom";
 import styled from '@emotion/styled';
 import Home from "pages/Home/Home";
+import Collection from "pages/NotFound/NotFound";
+
 const StyledLink = styled(NavLink)`
   color: black;
 
@@ -31,7 +33,7 @@ export const App = () => {
       </ul>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cats" element={<>Collection</>} />
+        <Route path="/cats" element={<Collection />} />
         <Route path="/cats/:catId" element={<>Collection element</>} />
       </Routes>
     </div>
