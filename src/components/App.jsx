@@ -2,6 +2,7 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import styled from '@emotion/styled';
 import Home from "pages/Home/Home";
 import Collection from "pages/NotFound/NotFound";
+import { getTrendingMovies, getMovies } from "../services/getDATA";
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -12,6 +13,10 @@ const StyledLink = styled(NavLink)`
 `;
 
 export const App = () => {
+
+  console.log(getTrendingMovies());
+  console.log(getMovies('babylon'));
+
   return (
     <div
       // style={{
