@@ -1,0 +1,22 @@
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+
+export const MovieName = styled.p`
+  padding: 4px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: black;
+  margin-bottom: 0;
+`;
+
+export const MovieLink = styled(Link)`
+  text-decoration: none;
+`;
+export const MovieLi = styled.li`
+ 
+  &:hover {
+    border-radius: 5px;
+    box-shadow: 1px 2px 4px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+`;

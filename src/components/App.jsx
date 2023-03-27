@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Home from "pages/Home/Home";
 import Collection from "pages/NotFound/NotFound";
 import { getTrendingMovies, getMovies } from "../services/getDATA";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -41,6 +42,7 @@ export const App = () => {
         <Route path="/cats" element={<Collection />} />
         <Route path="/cats/:catId" element={<>Collection element</>} />
       </Routes>
+      <SharedLayout/>
     </div>
   );
 };
