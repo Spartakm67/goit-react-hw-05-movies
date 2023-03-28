@@ -1,8 +1,8 @@
-import { MovieName, MovieLi, MovieLink } from './MovieList.styled';
+import { MovieName, MovieLi, MovieLink } from './MoviesList.styled';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const MovieList = ({ movies }) => {
+export const MoviesList = ({ movies }) => {
   const location = useLocation();
   return (
     <ul>
@@ -18,6 +18,6 @@ export const MovieList = ({ movies }) => {
 };
 
 
-MovieList.propTypes = {
+MoviesList.propTypes = {
   movies: PropTypes.array
 }

@@ -1,22 +1,18 @@
-import { NavLink, Route, Routes } from "react-router-dom";
-import styled from '@emotion/styled';
+import { Route, Routes } from "react-router-dom";
+// import styled from '@emotion/styled';
 import Home from "pages/Home/Home";
 import Collection from "pages/NotFound/NotFound";
-import { getTrendingMovies, getMovies } from "../services/getDATA";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 
-const StyledLink = styled(NavLink)`
-  color: black;
+// const StyledLink = styled(NavLink)`
+//   color: black;
 
-  &.active {
-    color: orange;
-  }
-`;
+//   &.active {
+//     color: orange;
+//   }
+// `;
 
 export const App = () => {
-
-  console.log(getTrendingMovies());
-  console.log(getMovies('babylon'));
 
   return (
     <div
@@ -29,20 +25,21 @@ export const App = () => {
       //   color: '#010101'
       // }}
     >
-      <ul>
+      {/* <ul>
         <li>
           <StyledLink to="/">Home</StyledLink>
           </li>
         <li>
           <StyledLink to="/cats">Collection</StyledLink>
           </li>
-      </ul>
+      </ul> */}
+      <SharedLayout/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cats" element={<Collection />} />
         <Route path="/cats/:catId" element={<>Collection element</>} />
       </Routes>
-      <SharedLayout/>
+      
     </div>
   );
 };
