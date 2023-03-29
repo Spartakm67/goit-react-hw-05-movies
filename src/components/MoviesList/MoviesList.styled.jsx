@@ -2,21 +2,27 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const MovieName = styled.p`
-  padding: 4px;
-  margin-top: 8px;
+  padding: 2px;
+  margin-top: 4px;
   margin-bottom: 0;
-  color: black;
+  color: #38598b;
   margin-bottom: 0;
 `;
 
 export const MovieLink = styled(Link)`
-  text-decoration: none;
+  
+&:hover {
+text-decoration: none;
+color: #ff9a3c; 
+  }
 `;
 export const MovieLi = styled.li`
  
   &:hover {
-    border-radius: 5px;
-    box-shadow: 1px 2px 4px 3px rgba(0, 0, 0, 0.5);
+
+    color: #ff9a3c;
+    /* border-radius: 5px;
+    box-shadow: 1px 2px 4px 3px rgba(0, 0, 0, 0.5); */
   }
   
 `;

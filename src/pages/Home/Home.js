@@ -1,7 +1,6 @@
 // import Cat from '../../images/Cat.png';
 import { getTrendingMovies } from '../../services/getDATA'; 
 import { useState, useEffect } from 'react';
-// import {  Outlet } from 'react-router-dom';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { HeaderTrands } from './Home.styled';
 
