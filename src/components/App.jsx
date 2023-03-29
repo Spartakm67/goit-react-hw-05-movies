@@ -33,11 +33,13 @@ export const App = () => {
           <StyledLink to="/cats">Collection</StyledLink>
           </li>
       </ul> */}
-      <SharedLayout/>
+      
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cats" element={<Collection />} />
-        <Route path="/cats/:catId" element={<>Collection element</>} />
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="cats" element={<Collection />} />
+        <Route path="cats/:catId" element={<>Collection element</>} />
+      </Route>
       </Routes>
       
     </div>

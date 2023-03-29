@@ -3,6 +3,7 @@ import { getTrendingMovies } from '../../services/getDATA';
 import { useState, useEffect } from 'react';
 // import {  Outlet } from 'react-router-dom';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
+import { HeaderTrands } from './Home.styled';
 
 const Home = () => {
     const [movies, setMovies] = useState([]);
@@ -25,7 +26,7 @@ const Home = () => {
      return (
         
          <main>
-         <h3>Tranding today</h3>
+         <HeaderTrands>Tranding today</HeaderTrands>
              <MoviesList movies={movies} />
              
     </main>
