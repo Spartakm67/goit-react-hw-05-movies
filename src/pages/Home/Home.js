@@ -17,12 +17,7 @@ const Home = () => {
             });
     }, []);
     
-    // return (
-    
-    // <>Home page
-    //     <img src={Cat} alt="cat" width="370" />
-    // </>
-     return (
+    return (
         
          <main>
          <HeaderTrands>Tranding today</HeaderTrands>
