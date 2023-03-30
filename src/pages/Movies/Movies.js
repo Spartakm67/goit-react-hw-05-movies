@@ -2,6 +2,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { getMovies } from '../../services/getDATA'; 
+import { Input } from './Movies.styled';
+import Notiflix from 'notiflix';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -12,7 +14,16 @@ const Movies = () => {
 
     getMovies(movieName)
             .then(data => {
-                setMovies(data.results);
+              setMovies(data.results);
+          //     if (data.results.length > 0) {
+          //   Notiflix.Notify.success(
+          //     `We have found the movies most relevant to your request`
+          //   );
+          // } else {
+          //   Notiflix.Notify.failure(
+          //     'Sorry, we have not found any movies for you...please, try again!'
+          //   );
+          // }
             })
             .catch(error => {
                 console.log(error);
@@ -23,10 +34,12 @@ const Movies = () => {
     const movieName = event.target.name.value;
 
     if (movieName.trim() === '') {
-      alert('Please enter name');
-      return;
+      Notiflix.Notify.warning(
+              `Please enter search data`
+            );
+            return;
     }
-
+    
     if (movieName === '') {
       return setSearchParams({});
     }
@@ -59,7 +72,7 @@ const Movies = () => {
     <main>
       <div>
         <form onSubmit={formSubmit}>
-          <input
+          <Input
             type="text"
             name="name"
             placeholder="enter movie name "
@@ -74,5 +87,13 @@ const Movies = () => {
     </main>
   );
 };
+
+Notiflix.Notify.init({
+  width: '550px',
+  position: 'center-top',
+  distance: '100px',
+  timeout: 2000,
+  fontSize: '20px',
+});
 
 export default Movies;
