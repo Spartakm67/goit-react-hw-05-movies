@@ -81,7 +81,7 @@ const Movies = () => {
     }
     getMovies(movieName);
     
-  }, [movies, movieName, setSearchParams]);
+  }, [movies, movieName]);
   
   return (
     <main>
@@ -106,8 +106,8 @@ const Movies = () => {
 Notiflix.Notify.init({
   width: '550px',
   position: 'center-top',
-  distance: '100px',
-  timeout: 2000,
+  distance: '10px',
+  timeout: 1000,
   fontSize: '20px',
 });
 
