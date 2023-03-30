@@ -7,27 +7,10 @@ import Notiflix from 'notiflix';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [name, setName] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const movieName = searchParams.get('name') ?? '';
-
-    // getMovies(movieName)
-    //         .then(data => {
-    //           setMovies(data.results);
-    //           if (data.results.length > 0) {
-    //         Notiflix.Notify.success(
-    //           `We have found the movies most relevant to your request`
-    //         );
-    //       } else {
-    //         Notiflix.Notify.failure(
-    //           'Sorry, we have not found any movies for you...please, try again!'
-    //         );
-    //       }
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
+  const name = searchParams.get('name');
+ 
     
   const formSubmit = event => {
     event.preventDefault();
@@ -35,20 +18,21 @@ const Movies = () => {
 
     if (movieName.trim() === '') {
       Notiflix.Notify.warning(
-              `Please enter search data`
-            );
-            return;
-    }
-    
-    if (movieName === '') {
-      return setSearchParams({});
+        `Please enter search data`
+      );
+      return;
     }
     setSearchParams({ name: movieName });
-
-    getMovies(movieName)
-            .then(data => {
-              setMovies(data.results);
-              if (data.results.length > 0) {
+    event.target.reset();
+  };
+    
+  useEffect(() => {
+   
+    function getEffectMovies() {
+      getMovies(name)
+        .then(data => {
+          setMovies(data.results);
+          if (data.results.length > 0) {
             Notiflix.Notify.success(
               `We have found the ${data.results.length} movies by your request`
             );
@@ -57,31 +41,15 @@ const Movies = () => {
               'Sorry, we have not found any movies for you...please, try again!'
             );
           }
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    setName('');
-  };
-
-  const handleChange = event => {
-    setName(event.currentTarget.value);
-  };
-
-  // useEffect(() => {
-  //   if (movieName === '') {
-  //     setSearchParams({});
-  //   }
-  // }, [movieName, setSearchParams]);
-
-
-  useEffect(() => {
-    if (movies === []) {
-      return;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
-    getMovies(movieName);
-    
-  }, [movies, movieName]);
+      if (name) {
+        getEffectMovies();
+      }
+  }, [name]);
   
   return (
     <main>
@@ -91,12 +59,9 @@ const Movies = () => {
             type="text"
             name="name"
             placeholder="enter movie name "
-            value={name}
-            onChange={handleChange}
           />
           <button type="submit">Search</button>
         </form>
-
         <MoviesList movies={movies} />
       </div>
     </main>
@@ -107,7 +72,7 @@ Notiflix.Notify.init({
   width: '550px',
   position: 'center-top',
   distance: '10px',
-  timeout: 1000,
+  timeout: 1500,
   fontSize: '20px',
 });
 
