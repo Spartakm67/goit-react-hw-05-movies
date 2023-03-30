@@ -12,22 +12,22 @@ const Movies = () => {
 
   const movieName = searchParams.get('name') ?? '';
 
-    getMovies(movieName)
-            .then(data => {
-              setMovies(data.results);
-          //     if (data.results.length > 0) {
-          //   Notiflix.Notify.success(
-          //     `We have found the movies most relevant to your request`
-          //   );
-          // } else {
-          //   Notiflix.Notify.failure(
-          //     'Sorry, we have not found any movies for you...please, try again!'
-          //   );
-          // }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    // getMovies(movieName)
+    //         .then(data => {
+    //           setMovies(data.results);
+    //           if (data.results.length > 0) {
+    //         Notiflix.Notify.success(
+    //           `We have found the movies most relevant to your request`
+    //         );
+    //       } else {
+    //         Notiflix.Notify.failure(
+    //           'Sorry, we have not found any movies for you...please, try again!'
+    //         );
+    //       }
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
     
   const formSubmit = event => {
     event.preventDefault();
@@ -45,7 +45,22 @@ const Movies = () => {
     }
     setSearchParams({ name: movieName });
 
-    getMovies(movieName);
+    getMovies(movieName)
+            .then(data => {
+              setMovies(data.results);
+              if (data.results.length > 0) {
+            Notiflix.Notify.success(
+              `We have found the ${data.results.length} movies by your request`
+            );
+          } else {
+            Notiflix.Notify.failure(
+              'Sorry, we have not found any movies for you...please, try again!'
+            );
+          }
+            })
+            .catch(error => {
+                console.log(error);
+            });
     setName('');
   };
 
@@ -53,11 +68,11 @@ const Movies = () => {
     setName(event.currentTarget.value);
   };
 
-  useEffect(() => {
-    if (movieName === '') {
-      setSearchParams({});
-    }
-  }, [movieName, setSearchParams]);
+  // useEffect(() => {
+  //   if (movieName === '') {
+  //     setSearchParams({});
+  //   }
+  // }, [movieName, setSearchParams]);
 
 
   useEffect(() => {
@@ -66,7 +81,7 @@ const Movies = () => {
     }
     getMovies(movieName);
     
-  }, [movies, movieName]);
+  }, [movies, movieName, setSearchParams]);
   
   return (
     <main>

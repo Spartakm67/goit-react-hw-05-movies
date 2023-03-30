@@ -9,7 +9,7 @@ export const MoviesList = ({ movies }) => {
       {movies.map(movie => (
         <MovieLi key={movie.id}>
           <MovieLink to={`/movies/${movie.id}`} state={{ from: location }}>
-            <MovieName>{movie.title}</MovieName>
+            <MovieName>{movie.title} ({movie.release_date.slice(0, 4)})</MovieName>
           </MovieLink>
         </MovieLi>
       ))}
