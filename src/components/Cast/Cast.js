@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { CastItem, CastList, Character, Name } from './Cast.styled';
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../../services/getDATA'; 
-import DefaultImage from '../../images/DefaultImage.png'; 
+import defaultImage from '../../images/defaultImage.png'; 
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
@@ -31,7 +31,7 @@ const Cast = () => {
               <img
                 src={profile_path
                     ? `https://image.tmdb.org/t/p/w200${profile_path}`
-                        : DefaultImage}
+                        : defaultImage}
                 alt="actor"
                 loading="lazy"
                 width={150}
