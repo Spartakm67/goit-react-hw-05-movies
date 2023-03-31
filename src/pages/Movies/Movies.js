@@ -28,7 +28,7 @@ const Movies = () => {
     
   useEffect(() => {
    
-    function getEffectMovies() {
+    async function getEffectMovies() {
       getMovies(name)
         .then(data => {
           setMovies(data.results);
