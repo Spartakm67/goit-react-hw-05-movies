@@ -28,3 +28,9 @@ export const Character = styled.p`
 export const CastImg = styled.img`
   width: 150px;
 `;
+
+export const NoCast = styled.p`
+  color: #8b00ff;
+  font-weight: 500;
+  font-size: 20px;
+`;

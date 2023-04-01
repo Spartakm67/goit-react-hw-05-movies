@@ -1,6 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { CastItem, CastList, Character, Name, CastImg } from './Cast.styled';
+import {
+  CastItem,
+  CastList,
+  Character,
+  Name,
+  CastImg,
+  NoCast,
+} from './Cast.styled';
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../../services/getDATA'; 
 import defaultImage from '../../images/defaultImage.png'; 
@@ -40,7 +47,8 @@ const Cast = () => {
               <Character> Character: {character}</Character>
             </CastItem>
           ))
-             : 'There is no information about cast members'}
+       : (<NoCast>
+         There is no information about cast members</NoCast>)}
     </CastList>
   );
 };

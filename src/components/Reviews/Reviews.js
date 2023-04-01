@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
-import { getMovieReviews } from '../../services/getDATA'; 
+import { getMovieReviews } from '../../services/getDATA';
+import { NoReview } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -29,8 +30,8 @@ const Reviews = () => {
               <p>{content}</p>
             </li>
           ))
-              : Notiflix.Notify.warning(
-                  "There are not any reviews for this movie")}
+              : (<NoReview>
+                  There are not any reviews for this movie</NoReview>)}
     </ul>
   );
 };
