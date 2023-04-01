@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Notiflix from 'notiflix';
 import { getMovieReviews } from '../../services/getDATA';
-import { NoReview } from './Reviews.styled';
+import { NotReview } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -30,8 +30,8 @@ const Reviews = () => {
               <p>{content}</p>
             </li>
           ))
-              : (<NoReview>
-                  There are not any reviews for this movie</NoReview>)}
+              : (<NotReview>
+                  There are not any reviews for this movie</NotReview>)}
     </ul>
   );
 };

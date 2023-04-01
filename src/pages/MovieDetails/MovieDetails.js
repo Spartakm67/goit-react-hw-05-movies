@@ -1,4 +1,5 @@
-import Notiflix from 'notiflix';import { useParams, useLocation, Outlet } from 'react-router-dom';
+import Notiflix from 'notiflix';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { BackLink } from '../../components/BackLink/BackLink';
 import { Suspense } from 'react';
 import { getMovieDetails } from '../../services/getDATA'; 
