@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { CastItem, CastList, Character, Name } from './Cast.styled';
+import { CastItem, CastList, Character, Name, CastImg } from './Cast.styled';
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../../services/getDATA'; 
 import defaultImage from '../../images/defaultImage.png'; 
@@ -28,7 +28,7 @@ const Cast = () => {
       {movieCast.length > 0
         ? movieCast.map(({ id, name, profile_path, character }) => (
             <CastItem key={id}>
-              <img
+              <CastImg
                 src={profile_path
                     ? `https://image.tmdb.org/t/p/w200${profile_path}`
                         : defaultImage}
