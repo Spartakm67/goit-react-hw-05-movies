@@ -3,19 +3,20 @@ import { BackLink } from '../../components/BackLink/BackLink';
 import { Suspense } from 'react';
 import { getMovieDetails } from '../../services/getDATA'; 
 import Cat from '../../images/Cat.png';
+import { useState, useEffect } from 'react';
 
 import {
   GenresList,
   DataBox,
+  DataBoxTitle,
+  DataBoxUl,
   MovieBox,
   MovieData,
   Title,
   DataLi,
-    DataLink,
+  DataLink,
   DataImg,
 } from './MovieDetails.styled';
-
-import { useState, useEffect } from 'react';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
@@ -61,13 +62,11 @@ const MovieDetails = () => {
               genres.length &&
               genres.map(({ id, name }) => <li key={id}>{name}</li>)}
           </GenresList>
-        </MovieData>
-      </MovieBox>
 
       <DataBox>
-        <h4>Additional information</h4>
-        <ul>
-          <DataLi>
+        <DataBoxTitle>Additional information</DataBoxTitle>
+          <DataBoxUl>
+           <DataLi>
             <DataLink to="cast" state={{ ...location.state }}>
               {' '}
               Cast
@@ -79,8 +78,12 @@ const MovieDetails = () => {
               Reviews
             </DataLink>
           </DataLi>
-        </ul>
+        </DataBoxUl>
       </DataBox>
+        </MovieData>
+      </MovieBox>
+
+      
       <Suspense fallback={<div>Loading subpage...</div>}>
         <Outlet />
       </Suspense>

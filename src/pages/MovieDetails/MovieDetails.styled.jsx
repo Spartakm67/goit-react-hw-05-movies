@@ -7,7 +7,7 @@ export const Title = styled.h2`
 `;
 export const MovieBox = styled.div`
   display: flex;
-  padding: 20px;
+  padding: 10px;
 `;
 export const MovieData = styled.div`
   padding: 20px 40px;
@@ -32,27 +32,33 @@ export const Button = styled.button`
   }
 `;
 
-export const LinkBack = styled(Link)`
-  display: flex;
-  font-size: 14px;
-  align-items: center;
-  column-gap: 10px;
-`;
 export const DataBox = styled.div`
-  padding: 5px;
+  padding: 0px;
+`;
+
+export const DataBoxTitle = styled.h4`
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #155263;
+`;
+
+export const DataBoxUl = styled.ul`
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const DataLi = styled.li`
-  /* width: 100px;
-  height: 25px; */
-  &:hover {
+    &:hover {
     color: #ff9a3c;
   }
 `;
 
 export const DataLink = styled(Link)`
   text-decoration: none;
-  padding-left: 10px;
+  padding-left: 0px;
   color: black;
   &:hover {
     color: #ff9a3c;

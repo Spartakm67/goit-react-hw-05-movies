@@ -35,7 +35,6 @@ const Cast = () => {
                 alt="actor"
                 loading="lazy"
                 width={150}
-                // height={200}
               />
               <Name>{name}</Name>
               <Character> Character: {character}</Character>
@@ -49,8 +48,8 @@ const Cast = () => {
 Notiflix.Notify.init({
   width: '420px',
   position: 'center-top',
-  distance: '100px',
-  timeout: 2000,
+  distance: '10px',
+  timeout: 1500,
   fontSize: '20px',
 });
 

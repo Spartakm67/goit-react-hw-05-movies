@@ -8,10 +8,8 @@ import Notiflix from 'notiflix';
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const name = searchParams.get('name');
- 
-    
+     
   const formSubmit = event => {
     event.preventDefault();
     const movieName = event.target.name.value;
