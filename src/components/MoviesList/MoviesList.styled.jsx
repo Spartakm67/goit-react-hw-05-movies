@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const MovieName = styled.p`
   padding: 2px;
@@ -12,12 +12,22 @@ export const MovieName = styled.p`
     color: #ff9a3c; 
     font-weight: 500;
   }
+
+  &.active {
+    color: #f95959;
+    background-color: orangered;
+}
 `;
 
-export const MovieLink = styled(Link)`
+export const MovieLink = styled(NavLink)`
   
 &:hover {
 text-decoration: none;
+}
+
+&.active {
+    color: #f95959;
+    background-color: orangered;
 }
 `;
 
@@ -27,3 +37,10 @@ export const MovieLi = styled.li`
     color: #ff9a3c;
   }
 `;
+
+// export const movieNavLink = styled(NavLink)`
+//   &.active {
+//     color: orange;
+//   }
+
+// `;

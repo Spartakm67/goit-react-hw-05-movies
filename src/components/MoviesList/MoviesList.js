@@ -8,9 +8,11 @@ export const MoviesList = ({ movies }) => {
     <ul>
       {movies.map(movie => (
         <MovieLi key={movie.id}>
+         <nav>
           <MovieLink to={`/movies/${movie.id}`} state={{ from: location }}>
             <MovieName>{movie.title} ({movie.release_date.slice(0, 4)})</MovieName>
           </MovieLink>
+         </nav>
         </MovieLi>
       ))}
     </ul>
