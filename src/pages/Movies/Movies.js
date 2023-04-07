@@ -19,7 +19,7 @@ const Movies = () => {
       Notiflix.Notify.warning(
         `Please enter search data`
       );
-      return;
+      return setSearchParams({});
     }
     setSearchParams({ name: movieName });
      event.target.reset();
@@ -32,6 +32,7 @@ const Movies = () => {
         getMovies(name)
           .then(data => {
             setMovies(data.results);
+            setPrevName(name);
             if (data.results.length > 0) {
               Notiflix.Notify.success(
                 `We have found the ${data.results.length} movies by your request`
@@ -40,6 +41,7 @@ const Movies = () => {
               Notiflix.Notify.failure(
                 'Sorry, we have not found any movies for you...please, try again!'
               );
+              return;
             }
           })
           .catch(error => {
@@ -47,7 +49,6 @@ const Movies = () => {
           });
       }
       getEffectMovies();
-      setPrevName(name);
     }
   }, [name, prevName]);
   
